@@ -23,14 +23,14 @@ APP.use("/auth", AUTH_ROUTER)
 
 APP.get("/trains", isCompanyAuthenticated, async (req, res) => {
   const trains = await fetchTrains(endpoints.getTrains)
-  res.status(200).send(trains)
+  res.status(200).send({ trains })
 })
 
 APP.get("/trains/:trainId", isCompanyAuthenticated, async (req, res) => {
   const train = await fetchTrains(
     endpoints.getTrains + `/${req.params.trainId}`
   )
-  res.status(200).send(train)
+  res.status(200).send({ train })
 })
 
 APP.listen(PORT, () => {

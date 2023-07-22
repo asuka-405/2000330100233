@@ -2,18 +2,10 @@ import Trains from "./components/trains"
 
 import "./App.css"
 
-async function App() {
-  const fetchTrains = async () => {
-    const response = await fetch("http://localhost:3000/trains").catch((err) =>
-      console.log(err)
-    )
-    console.log(response.trains)
-    return response.data
-  }
-
+function App() {
   return (
     <>
-      <Trains trains={await fetchTrains()} />
+      <Trains />
     </>
   )
 }
