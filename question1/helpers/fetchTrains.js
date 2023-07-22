@@ -13,7 +13,7 @@ const fetchTrains = async (url) => {
       return response
     })
     .catch((error) => {
-      FS.writeFileSync("error.json", JSON.stringify(error))
+      FS.writeFileSync("error.json", error)
       console.log("🚒 some err occured!! see err.json for more details ❌")
     })
   return res
