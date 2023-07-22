@@ -1,16 +1,26 @@
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 
-const TrainCard = (trainData) => {
+const TrainCard = ({ train }) => {
+  const { trainName, trainNumber, departureTime } = train
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{trainData.name}</Card.Title>
+    <Card
+      style={{
+        padding: "1rem",
+        minWidth: "10rem",
+        border: "2px solid black",
+      }}
+    >
+      <Card.Body className="mt-2">
+        <Card.Title>{trainName}</Card.Title>
+        <Card.Subtitle className="text-muted">{trainNumber}</Card.Subtitle>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card`s content.
+          {departureTime["Hours"]}:{departureTime["Minutes"]}:
+          {departureTime["Seconds"]}
         </Card.Text>
-        <Button variant="primary">Select Train</Button>
+        <Button className="mb-2" variant="primary">
+          Select Train
+        </Button>
       </Card.Body>
     </Card>
   )
